@@ -12,13 +12,17 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    @article = Article.new
   end
 
   def create
     @article = Article.new(article_params)
 
-    @article.save
-    redirect_to @article
+    if @article.save
+      redirect_to @article
+    else
+      render 'new' # directs to the new action above
+    end
   end
 
   private
