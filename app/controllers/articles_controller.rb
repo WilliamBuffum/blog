@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
 
+  def index
+    @articles = Article.all
+  end
+
   # defines action to 'show' article.
   # 'bin/rails route' shows that this route is on
   # 'article  GET /articles/:id(.:format)  articles#show'
